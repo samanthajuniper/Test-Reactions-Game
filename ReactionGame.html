@@ -1,0 +1,172 @@
+<html>
+
+    <head>
+    
+        <title>Javascript</title>
+    
+        <style type="text/css"> 
+             
+    
+            #shape {
+                
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                display:none;
+                position:relative;
+                border-radius: 30px
+                border:10px solid black;
+                
+            }
+   
+          
+        
+        </style>
+     
+    
+    </head>
+    
+    
+  
+    
+
+    
+
+
+    <body>
+            
+     
+        <h1>Test Your Reactions!</h1>
+        
+        <p style="font-size: 20px">Click on the boxes and circles as quickly as you can!</p>
+        
+        <h3>Your Time: <span id="timeTaken"></span></h3>      
+     
+        <div id="shape"></div>
+        
+       
+        
+
+        <script type="text/javascript">
+            
+
+            
+//Big Picture: User will click on shapes that randomly appear on the page & we need to print their reaction time to each
+            //1: generate different shapes: random shape, random color, random size, random positioning
+            //2: These shapes need to do two things: change each time the user clicks on one & print a reaction time after each click (need to create some kind of loop that cycles through these)
+            //3: Need to use a timer to print reaction times and we need to add a delay between each shape appearing
+            // function timeFunction() document.getElementById("shape").value           document.getElementById("shape").onclick = setTimeout(timeFunction, 3000) { document.getElementById("shape").style.display =  
+                
+            
+  
+                var start = new Date().getTime();
+            
+                function getRandomColor() {
+                    
+                    var letters = '0123456789ABCDEF' .split('');
+ 
+                    var color = '#';
+  
+                    for (var i = 0; i < 6; i++) {
+   
+                        color += letters[Math.floor(Math.random() * 16)];
+  
+                    }
+  
+                    return color;
+
+                }
+            
+                function timeLapse() {
+                    
+                    var top = Math.random() * 400;
+                    
+                    var left = Math.random() * 400;
+                    
+                    var width = (Math.random() * 200) + 100;
+                    
+                    var height = Math.random() * 400;
+                    
+                    var borderRadius = Math.random() * 400;
+                    
+                    document.getElementById("shape").style.backgroundColor = getRandomColor();
+                    
+                    document.getElementById("shape").style.top = top + "px";
+                    
+                    document.getElementById("shape").style.left = left + "px"
+                    
+                    document.getElementById("shape").style.width = width + "px"
+                    
+                    document.getElementById("shape").style.height = width + "px"
+                
+                    document.getElementById("shape").style.display = "block";
+                    
+                    start = new Date().getTime();
+                
+                }
+            
+                
+            
+                function appearAfterLapse() {
+                    
+                     setTimeout(timeLapse, Math.random() * 2000);
+                    
+                }
+            
+                appearAfterLapse();
+
+                document.getElementById("shape").onclick = function() {
+                
+                    document.getElementById("shape").style.display = "none";
+                
+                    var end = new Date().getTime();
+                
+                    var timeTaken = (end - start) / 1000;
+                 
+                    document.getElementById("timeTaken").innerHTML = timeTaken + "s";
+                 
+                    appearAfterLapse();
+                    
+         
+                }
+    
+                  
+            
+
+       
+            
+         
+            
+  
+            
+            
+            
+   
+         
+        </script>
+        
+        
+            
+
+              
+    
+        
+        
+    
+    </body>
+    
+
+
+
+
+
+</html>
+        
+        
+        
+        
+        
+        
+        
+        
+        
