@@ -61,6 +61,12 @@
   
                 var start = new Date().getTime();
             
+                var counter = 0
+                
+               
+                // for (counter = 0; counter < 11; counter++) {
+                    
+           
                 function getRandomColor() {
                     
                     var letters = '0123456789ABCDEF' .split('');
@@ -105,7 +111,7 @@
                 
                 }
             
-                
+             
             
                 function appearAfterLapse() {
                     
@@ -114,23 +120,57 @@
                 }
             
                 appearAfterLapse();
+            
+            
+                var timeArray = new Array();
+
+                var average = timeArray / timeArray.length
 
                 document.getElementById("shape").onclick = function() {
+                    
+                    //for (counter = 0; counter < 11;) { 
                 
+                    
+                if (counter > 2) {
+           
+                    alert("First click time: " + timeArray[0] + " seconds" + "\n" + "Second click time: "+ timeArray[1] + " seconds" + "\n" + "Second click time: "+ timeArray[2] + " seconds");
+                    
+                    alert(average);
+                    
+                }
+                    
+                    else { 
+
                     document.getElementById("shape").style.display = "none";
                 
                     var end = new Date().getTime();
                 
                     var timeTaken = (end - start) / 1000;
-                 
+                        
+                    timeArray[counter] = timeTaken
+                    
                     document.getElementById("timeTaken").innerHTML = timeTaken + "s";
+                        
+                    counter++
                  
                     appearAfterLapse();
                     
-         
-                }
+                    }
+                        
+                    
+                    }
+   
+               // }
+                
+             
+                
+             
+            
+       
     
-                  
+                
+                
+                
             
 
        
